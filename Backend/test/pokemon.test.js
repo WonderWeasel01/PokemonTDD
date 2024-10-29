@@ -15,7 +15,7 @@ chai.use(chaiHttp);
 describe('Pokémon API', () => {
     it('should fetch Pokémon data for a valid name', (done) => {
         chai.request(app)
-            .get('/api/pokemon/ditto') // Brug den korrekte rute
+            .get('/api/pokemon/ditto')
             .end((err, res) => {
                 expect(res).to.have.status(200);
                 expect(res.body).to.have.property('name').eql('ditto');
@@ -30,7 +30,7 @@ describe('Pokémon API', () => {
 
     it('should return 404 for an invalid Pokémon name', (done) => {
         chai.request(app)
-            .get('/api/pokemon/invalidname') // Brug en ugyldig rute
+            .get('/api/pokemon/invalidname')
             .end((err, res) => {
                 expect(res).to.have.status(404);
                 expect(res.body).to.have.property('message').eql('Pokémon ikke fundet');
@@ -40,7 +40,7 @@ describe('Pokémon API', () => {
 
     it('should return 400 if no name is provided', (done) => {
         chai.request(app)
-            .get('/api/pokemon/') // Ingen navn angivet
+            .get('/api/pokemon/')
             .end((err, res) => {
                 expect(res).to.have.status(400);
                 expect(res.body).to.have.property('message').eql('Pokémon-navn skal angives i URL');

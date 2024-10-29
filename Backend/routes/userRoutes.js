@@ -1,5 +1,5 @@
 import express from 'express';
-import { getPokemonData } from '../controllers/userController.js';  // Ændret til navngivet impor
+import { getPokemonData } from '../controllers/userController.js';
 
 const router = express.Router();
 
@@ -50,18 +50,17 @@ const router = express.Router();
  *         description: Pokémon ikke fundet
  */
 
-router.get('/:name', getPokemonData); // Rute til at hente Pokémon-data
+// Rute til at hente Pokémon-data
+router.get('/:name', getPokemonData); 
 
 router.get('/', (req, res) => {
-    res.status(400).json({ message: 'Pokémon-navn skal angives i URL' }); // Tilføjet rute til håndtering af anmodninger uden navn
+    res.status(400).json({ message: 'Pokémon-navn skal angives i URL' });
 });
 
-// Fjern Swagger opsætning fra her
 
-// Tilføj denne funktion for at eksportere ruterne
+
 export const setupRoutes = (app) => {
-    app.use('/api', router); // Tilføj routeren til appen
+    app.use('/api', router);
 };
 
-// Eksporter routeren som standard
 export default router;

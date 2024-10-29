@@ -11,14 +11,14 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://localhost:3000/',
+                url: 'http://localhost:3000',
             },
         ],
     },
     apis: [
         path.join('Backend/routes/userRoutes.js'), 
         path.join('Backend/controllers/userController.js')
-    ], // Sti til dine API-dokumentation
+    ], 
 };
 
 export const swaggerDocs = swaggerJsDoc(swaggerOptions);

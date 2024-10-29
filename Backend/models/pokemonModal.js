@@ -15,4 +15,4 @@ const fetchPokemon = async (pokemonName) => {
     };
 };
 
-export default fetchPokemon; // Ændrer til default eksport
+export default fetchPokemon;

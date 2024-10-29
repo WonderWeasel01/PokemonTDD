@@ -1,4 +1,4 @@
-import fetchPokemon from '../models/pokemonModal.js'; // Importer fetchPokemon
+import fetchPokemon from '../models/pokemonModal.js'; 
 
 /**
  * @swagger
@@ -42,16 +42,16 @@ import fetchPokemon from '../models/pokemonModal.js'; // Importer fetchPokemon
 
 // Hent data om Pokémon baseret på navn
 export const getPokemonData = async (req, res) => {
-    const pokemonName = req.params.name.toLowerCase(); // Hent Pokémon-navn fra URL
-    console.log(`Forsøger at hente data for Pokémon: ${pokemonName}`); // Log Pokémon-navn
+    const pokemonName = req.params.name.toLowerCase();
+    console.log(`Forsøger at hente data for Pokémon: ${pokemonName}`);
 
     try {
-        const pokemonData = await fetchPokemon(pokemonName); // Hent Pokémon-data
-        res.json(pokemonData); // Send data som JSON
+        const pokemonData = await fetchPokemon(pokemonName);
+        res.json(pokemonData);
     } catch (error) {
-        console.error(error); // Log fejl
-        res.status(404).json({ message: 'Pokémon ikke fundet' }); // Håndter fejl
+        console.error(error);
+        res.status(404).json({ message: 'Pokémon ikke fundet' });
     }
 };
 
-export default getPokemonData; // Ændrer til default eksport
+export default getPokemonData;
